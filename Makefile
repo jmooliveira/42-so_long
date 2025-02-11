@@ -6,7 +6,7 @@
 #    By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 11:42:13 by jemorais          #+#    #+#              #
-#    Updated: 2025/02/11 16:34:23 by jemorais         ###   ########.fr        #
+#    Updated: 2025/02/11 19:59:46 by jemorais         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ LIBMLX	=	./MLX42
 
 LIBS	=	$(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm $(LIBFT)/libft.a
 
-HDRS	=	-I .lib/include -I $(LIBMLX)/include
+HDRS	=	-I lib/include -I $(LIBMLX)/include
 
 SRCS	=	src/so_long.c \
 
@@ -42,14 +42,14 @@ $(NAME): $(OBJS)
 %.o:%.c
 	$(CC) $(CFLAGS) $(HDRS) -c $< -o $@
 
-0clean:
+clean:
 	$(RM) $(OBJS)
 	@$(MAKE) -C $(LIBFT) clean
 
 fclean: clean
-	$(RM) ${NAME} ${NAME_BONUS}
+	$(RM) ${NAME}
 	@$(MAKE) -C $(LIBFT) fclean
 
 re: fclean all bonus
 
-.PHONY: all clean fclean re libft bonus
+.PHONY: all clean fclean re libft

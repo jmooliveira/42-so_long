@@ -6,7 +6,7 @@
 /*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:46:56 by jemorais          #+#    #+#             */
-/*   Updated: 2025/02/11 18:45:17 by jemorais         ###   ########.fr       */
+/*   Updated: 2025/02/11 19:58:53 by jemorais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ int main(int ac, char **av)
 
 	ac = 2; // !!!!!!!!!!!
 	(void)av; // !!!!!!!!!!!
+
 	if(ac != 2)
 		return(EXIT_FAILURE, 0);
+
 	game = malloc(sizeof(t_game));
 	if(!game)
 		return(EXIT_FAILURE);
@@ -67,5 +69,7 @@ int main(int ac, char **av)
 
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
+
+	free(game);
 	return (EXIT_SUCCESS);
 }
