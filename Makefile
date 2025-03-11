@@ -6,7 +6,7 @@
 #    By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 11:42:13 by jemorais          #+#    #+#              #
-#    Updated: 2025/02/11 19:59:46 by jemorais         ###   ########.fr        #
+#    Updated: 2025/03/11 18:18:13 by jemorais         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS	=	-Wall -Werror -Wextra -Wunreachable-code -Ofast
 LIBFT	=	./lib/libft
 LIBMLX	=	./MLX42
 
-LIBS	=	$(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm $(LIBFT)/libft.a
+#LIBS	=	$(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm $(LIBFT)/libft.a
 
 HDRS	=	-I lib/include -I $(LIBMLX)/include
 
@@ -28,10 +28,10 @@ OBJS	=	$(SRCS:.c=.o)
 
 RM		=	rm -rf
 
-all: libmlx libft $(NAME)
+#all: libmlx libft $(NAME)
 
-libmlx:
-	cmake -S $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
+# libmlx:
+#	cmake -S $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 libft:
 	@$(MAKE) -C $(LIBFT)
