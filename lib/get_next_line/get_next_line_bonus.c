@@ -6,11 +6,11 @@
 /*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:14:34 by jemorais          #+#    #+#             */
-/*   Updated: 2024/11/29 14:29:30 by jemorais         ###   ########.fr       */
+/*   Updated: 2025/03/13 14:36:46 by jemorais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "../include/get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
