@@ -48,7 +48,7 @@ SRCS		=	./libft/ft_isalpha.c \
 				./ft_printf/ft_printf.c \
 				./ft_printf/ft_printf_utils1.c \
 				./ft_printf/ft_printf_utils2.c \
-				./get_next_line/get_next_line_bonus.c \
+				./get_next_line/get_next_line.c \
 
 HEADER		=	./includes
 AR			=	ar rcs

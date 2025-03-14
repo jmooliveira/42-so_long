@@ -13,8 +13,11 @@ LIBS	=	$(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm $(LIBFT)/libft.a
 
 HEADER	=	-I ./lib/include -I $(LIBMLX)/build
 
-SRCS	=	src/so_long.c \
-			src/errors.c \
+SRCS	=	src/main.c \
+			src/validate.c \
+			src/free_and_errors.c \
+			src/init.c \
+			src/so_long.c \
 
 OBJS	=	$(SRCS:.c=.o)
 

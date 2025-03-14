@@ -6,7 +6,7 @@
 /*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:06:44 by jemorais          #+#    #+#             */
-/*   Updated: 2024/10/30 14:36:21 by jemorais         ###   ########.fr       */
+/*   Updated: 2025/03/14 14:56:16 by jemorais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
+void	ft_putstr_fd(const char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 t_list	*ft_lstnew(void *content);

@@ -6,13 +6,13 @@
 /*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 13:02:45 by jemorais          #+#    #+#             */
-/*   Updated: 2025/02/07 18:28:57 by jemorais         ###   ########.fr       */
+/*   Updated: 2025/03/14 14:55:55 by jemorais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(const char *s, int fd)
 {
 	int	i;
 
