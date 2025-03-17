@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeff <jeff@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:02:07 by jemorais          #+#    #+#             */
-/*   Updated: 2025/03/14 19:04:59 by jemorais         ###   ########.fr       */
+/*   Updated: 2025/03/16 21:11:08 by jeff             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*validate.c*/
 
 #include "so_long.h"
-
-// check .ber == 4 chars
 
 void	ft_validate_input_file(char *file)
 {
@@ -30,7 +28,57 @@ void	ft_validate_input_file(char *file)
 	close(fd);
 }
 
-// void	ft_validate_map(t_game *game)
-// {
+void	ft_validate_map(t_game *game)
+{
+	game->map->height = ft_ptrlen(game->map->map);
+	game->map->width = ft_strlen(game->map->map[0]);
+	if (!ft_check_line_size(game))
+		ft_message_error_and_free_game(game, ERR_LINE_SIZE);
+	if (!ft_limits_map(game))
+		ft_message_error_and_free_game(game, ERR_MAP_OPEN);
+	if (game->map->height == game->map->width)
+		ft_message_error_and_free_game(game, ERR_SQUARE_MAP);
+	if (game->map->height < 3 || game->map->width < 3)
+		ft_message_error_and_free_map(game, ERR_TOO_SHORT);
+	if ((game->map->height * game->map->width) < 15) // 5x5 valida com todos os assets
+		ft_message_error_and_free_map(game, ERR_TOO_SHORT);
+}
 
-// }
+bool	ft_check_line_size(t_game *game)
+{
+	int	i;
+	int j;
+
+	i = 0;
+	while (game->map->map[i])
+	{
+		j = 0;
+		while (game->map->map[i][j])
+			j++;
+		if (j != game->map->width)
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
+bool ft_limits_map(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (game->map->map[i])
+	{
+		j = 0;
+		while (game->map->map[i][j])
+		{
+			if ((i == 0 || i == game->map->height - 1 || j == 0 
+				|| j == game->map->width - 1) && game->map->map[i][j] != '1')
+				return (false);
+			j++;
+		}
+		i++;
+	}
+	return (true);
+}

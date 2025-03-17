@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeff <jeff@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:49:52 by jemorais          #+#    #+#             */
-/*   Updated: 2025/03/14 19:17:11 by jemorais         ###   ########.fr       */
+/*   Updated: 2025/03/16 20:19:05 by jeff             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_init_map(t_game *game, char *file)
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		ft_message_error_and_free(game, ERR_OPEN);
+		ft_message_error_and_free_map(game, ERR_OPEN);
 	line = ft_strdup("");
 	while (42)
 	{
@@ -43,12 +43,42 @@ void	ft_init_map(t_game *game, char *file)
 
 void	ft_set_map(t_game *game)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	c;
 
-	(void)game;
-	while (game->map->map[i][j] != '\0' && game->map->map[i][j] != '\n')
+	i = 0;
+	while(game->map->map[i] != NULL)
 	{
+		j = 0;
+		while (game->map->map[i][j] != '\0' && game->map->map[i][j] != '\n')
+		{
+			c = game->map->map[i][j];
+			if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P' && c != '\n')
+				ft_message_error_and_free_game(game, ERR_INVALID_CHAR);
+			ft_set_char(game, c, i, j);
+			j++;
+		}
+		i++;
+	}
+	if (game->map->collectable < 1 || game->map->exit != 1 || game->map->player != 1)
+		ft_message_error_and_free_game(game, ERR_INVALID_MAP);
+}
 
+void	ft_set_char(t_game *game, char c, int i, int j)
+{
+	if (c == 'C')
+		game->map->collectable++;
+	if (c == 'P')
+	{
+		game->map->player++;
+		game->player->player_x = i;
+		game->player->player_y = j;
+	}
+	if (c == 'E')
+	{
+		game->map->exit++;
+		game->map->exit_x = i;
+		game->map->exit_y = j;
 	}
 }

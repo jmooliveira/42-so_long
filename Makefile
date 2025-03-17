@@ -18,6 +18,7 @@ SRCS	=	src/main.c \
 			src/free_and_errors.c \
 			src/init.c \
 			src/so_long.c \
+			src/utils.c \
 
 OBJS	=	$(SRCS:.c=.o)
 

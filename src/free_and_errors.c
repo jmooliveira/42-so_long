@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_and_errors.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeff <jeff@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:44:19 by jemorais          #+#    #+#             */
-/*   Updated: 2025/03/14 18:51:21 by jemorais         ###   ########.fr       */
+/*   Updated: 2025/03/16 21:25:06 by jeff             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,29 @@ void	ft_message_error(const char *msg)
 	exit(1);
 }
 
-void	ft_message_error_and_free(t_game *game, const char *msg)
+void	ft_message_error_and_free_map(t_game *game, const char *msg)
 {
 	ft_putstr_fd(msg, 0);
+	free(game->player);
 	free(game->map);
 	free(game);
 	exit(2);
 }
 
-void	ft_free_game(t_game *game)
+void	ft_message_error_and_free_game(t_game *game, const char *msg)
 {
+	ft_putstr_fd(msg, 0);
 	ft_free_map(game->map->map, ft_ptrlen(game->map->map));
+	free(game->player);
 	free(game->map);
 	free(game);
-	ft_printf("\nTHATS ALL FOLKS! %d\n", 86); // SAI
-	exit (0);
+	exit(2);
 }
 
 void	ft_free_map(char **ptr, int	ptr_len)
 {
 	int	i;
-
+	
 	i = 0;
 	while (i < ptr_len)
 	{
@@ -50,12 +52,12 @@ void	ft_free_map(char **ptr, int	ptr_len)
 	free(ptr);
 }
 
-int	ft_ptrlen(char **ptr)
+void	ft_free_game_final(t_game *game)
 {
-	int	i;
-
-	i = 0;
-	while (ptr[i] != NULL)
-		i++;
-	return (i);
+	ft_free_map(game->map->map, ft_ptrlen(game->map->map));
+	free(game->player);
+	free(game->map);
+	free(game);
+	ft_printf("\nTHATS ALL FOLKS! %d\n", 86); // SAI
+	exit (0);
 }
