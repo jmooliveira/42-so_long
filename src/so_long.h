@@ -6,7 +6,7 @@
 /*   By: jeff <jeff@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:09:18 by jemorais          #+#    #+#             */
-/*   Updated: 2025/03/16 21:26:22 by jeff             ###   ########.fr       */
+/*   Updated: 2025/03/16 22:29:25 by jeff             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,24 +67,29 @@ typedef struct s_game
 	t_player	*player;
 }	t_game;
 
-
+// validate.c
 void	ft_validate_input_file(char *file);
 void	ft_validate_map(t_game *game);
 bool	ft_check_line_size(t_game *game);
+bool	ft_limits_map(t_game *game);
 
+// init_map.c
 void	ft_init_map(t_game	*game, char *file);
 char	*get_next_line(int fd);
 void	ft_set_map(t_game *game);
 void	ft_set_char(t_game *game, char c, int i, int j);
-bool	ft_limits_map(t_game *game);
 
+// free_and_errors.c
 void	ft_message_error(const char *msg);
 void	ft_message_error_and_free_map(t_game *game, const char *msg);
 void	ft_free_game_final(t_game *game);
 void	ft_free_map(char **ptr, int	ptr_len);
 void	ft_message_error_and_free_game(t_game *game, const char *msg);
 
+//utils.c
 int		ft_ptrlen(char **ptr);
+
+//so_long.g
 
 #endif
 

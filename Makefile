@@ -16,7 +16,7 @@ HEADER	=	-I ./lib/include -I $(LIBMLX)/build
 SRCS	=	src/main.c \
 			src/validate.c \
 			src/free_and_errors.c \
-			src/init.c \
+			src/init_map.c \
 			src/so_long.c \
 			src/utils.c \
 
