@@ -6,9 +6,8 @@ CC		=	cc
 CFLAGS	=	-Wall -Werror -Wextra
 
 LIBFT	=	./lib
-LIB		=	$(LIBFT)/libft.a
 
-LIBMLX	=	./mlx
+LIBMLX	=	./MLX42
 LIBS	=	$(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm $(LIBFT)/libft.a
 
 HEADER	=	-I ./lib/include -I $(LIBMLX)/build
@@ -24,13 +23,16 @@ OBJS	=	$(SRCS:.c=.o)
 
 RM		=	rm -rf
 
-all: $(NAME)
+all: libft libmlx $(NAME)
+
+libmlx:
+	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 libft:
 	@make -C $(LIBFT)
 
 $(NAME): $(OBJS) libft
-	$(CC) $(CFLAGS) $(OBJS) $(LIB) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
 
 %.o:%.c
 	$(CC) $(CFLAGS) -o $@ -c $< ${HEADER}
@@ -38,6 +40,7 @@ $(NAME): $(OBJS) libft
 clean:
 	$(RM) $(OBJS)
 	make -C $(LIBFT) clean
+	@rm -rf $(LIBMLX)/build
 
 fclean: clean
 	$(RM) $(NAME)

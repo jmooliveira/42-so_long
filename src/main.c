@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeff <jeff@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 14:52:04 by jemorais          #+#    #+#             */
-/*   Updated: 2025/03/16 22:12:34 by jeff             ###   ########.fr       */
+/*   Updated: 2025/03/17 14:46:13 by jemorais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int	main(int n_args, char **file)
 	game->player = ft_calloc(1, sizeof(t_player));
 	ft_init_map(game, file[1]);
 	ft_validate_map(game);
-	// ft_so_long(game);
+	ft_so_long(game);
 	ft_free_game_final(game);
 }

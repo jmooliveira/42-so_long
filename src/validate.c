@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeff <jeff@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:02:07 by jemorais          #+#    #+#             */
-/*   Updated: 2025/03/16 22:33:40 by jeff             ###   ########.fr       */
+/*   Updated: 2025/03/17 15:05:28 by jemorais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,17 @@ void	ft_validate_map(t_game *game)
 		ft_message_error_and_free_game(game, ERR_SQUARE_MAP);
 	if (game->map->height < 3 || game->map->width < 3)
 		ft_message_error_and_free_game(game, ERR_TOO_SHORT);
-	if ((game->map->height * game->map->width) < 15) // 5x5 valida com todos os assets, porém menor da erro 
+	if ((game->map->height * game->map->width) < 15)
 		ft_message_error_and_free_game(game, ERR_TOO_SHORT);
-	//copy_map - flood_fill
 }
+
+// 5x5 valida com todos os assets, porém menor da erro
+//copy_map - flood_fill
 
 bool	ft_check_line_size(t_game *game)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	while (game->map->map[i])
@@ -63,7 +65,7 @@ bool	ft_check_line_size(t_game *game)
 	return (true);
 }
 
-bool ft_limits_map(t_game *game)
+bool	ft_limits_map(t_game *game)
 {
 	int	i;
 	int	j;
@@ -74,8 +76,9 @@ bool ft_limits_map(t_game *game)
 		j = 0;
 		while (game->map->map[i][j])
 		{
-			if ((i == 0 || i == game->map->height - 1 || j == 0 
-				|| j == game->map->width - 1) && game->map->map[i][j] != '1')
+			if ((i == 0 || i == game->map->height - 1 || j == 0
+					|| j == game->map->width - 1)
+				&& game->map->map[i][j] != '1')
 				return (false);
 			j++;
 		}

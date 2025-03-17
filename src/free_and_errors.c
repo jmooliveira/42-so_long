@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_and_errors.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeff <jeff@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:44:19 by jemorais          #+#    #+#             */
-/*   Updated: 2025/03/16 22:21:14 by jeff             ###   ########.fr       */
+/*   Updated: 2025/03/17 14:58:10 by jemorais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void	ft_message_error_and_free_game(t_game *game, const char *msg)
 	exit(2);
 }
 
-void	ft_free_map(char **ptr, int	ptr_len)
+void	ft_free_map(char **ptr, int ptr_len)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < ptr_len)
 	{
@@ -58,6 +58,6 @@ void	ft_free_game_final(t_game *game)
 	free(game->player);
 	free(game->map);
 	free(game);
-	ft_printf("\nTHATS ALL FOLKS! %d\n", 86); // SAI
+	ft_printf("\nTHATS ALL FOLKS! %d\n", 86);
 	exit (0);
 }

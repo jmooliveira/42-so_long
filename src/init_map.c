@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeff <jeff@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:49:52 by jemorais          #+#    #+#             */
-/*   Updated: 2025/03/16 22:22:54 by jeff             ###   ########.fr       */
+/*   Updated: 2025/03/17 15:03:36 by jemorais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_init_map(t_game *game, char *file)
 	while (42)
 	{
 		aux = get_next_line(fd);
-		if(aux == NULL)
+		if (aux == NULL)
 			break ;
 		tmp = ft_strjoin(line, aux);
 		free(aux);
@@ -48,20 +48,22 @@ void	ft_set_map(t_game *game)
 	char	c;
 
 	i = 0;
-	while(game->map->map[i] != NULL)
+	while (game->map->map[i] != NULL)
 	{
 		j = 0;
 		while (game->map->map[i][j] != '\0' && game->map->map[i][j] != '\n')
 		{
 			c = game->map->map[i][j];
-			if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P' && c != '\n')
+			if (c != '0' && c != '1' && c != 'C' && c != 'E'
+				&& c != 'P' && c != '\n')
 				ft_message_error_and_free_game(game, ERR_INVALID_CHAR);
 			ft_set_char(game, c, i, j);
 			j++;
 		}
 		i++;
 	}
-	if (game->map->collectable < 1 || game->map->exit != 1 || game->map->player != 1)
+	if (game->map->collectable < 1 || game->map->exit != 1
+		|| game->map->player != 1)
 		ft_message_error_and_free_game(game, ERR_INVALID_MAP);
 }
 
