@@ -6,7 +6,7 @@
 /*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:02:07 by jemorais          #+#    #+#             */
-/*   Updated: 2025/03/17 15:05:28 by jemorais         ###   ########.fr       */
+/*   Updated: 2025/03/19 17:58:55 by jemorais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,9 @@ void	ft_validate_map(t_game *game)
 		ft_message_error_and_free_game(game, ERR_MAP_OPEN);
 	if (game->map->height == game->map->width)
 		ft_message_error_and_free_game(game, ERR_SQUARE_MAP);
-	if (game->map->height < 3 || game->map->width < 3)
-		ft_message_error_and_free_game(game, ERR_TOO_SHORT);
 	if ((game->map->height * game->map->width) < 15)
 		ft_message_error_and_free_game(game, ERR_TOO_SHORT);
 }
-
-// 5x5 valida com todos os assets, porém menor da erro
-//copy_map - flood_fill
 
 bool	ft_check_line_size(t_game *game)
 {
@@ -85,4 +80,14 @@ bool	ft_limits_map(t_game *game)
 		i++;
 	}
 	return (true);
+}
+
+int	ft_ptrlen(char **ptr)
+{
+	int	i;
+
+	i = 0;
+	while (ptr[i] != NULL)
+		i++;
+	return (i);
 }

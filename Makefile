@@ -17,7 +17,8 @@ SRCS	=	src/main.c \
 			src/free_and_errors.c \
 			src/init_map.c \
 			src/so_long.c \
-			src/utils.c \
+			src/handle.c \
+			src/flood_fill.c \
 
 OBJS	=	$(SRCS:.c=.o)
 

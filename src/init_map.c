@@ -6,7 +6,7 @@
 /*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:49:52 by jemorais          #+#    #+#             */
-/*   Updated: 2025/03/17 15:03:36 by jemorais         ###   ########.fr       */
+/*   Updated: 2025/03/19 19:08:38 by jemorais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	ft_init_map(t_game *game, char *file)
 	close(fd);
 	game->map->map = ft_split(line, '\n');
 	free(line);
-	ft_set_map(game);
 }
 
 void	ft_set_map(t_game *game)
@@ -70,17 +69,26 @@ void	ft_set_map(t_game *game)
 void	ft_set_char(t_game *game, char c, int i, int j)
 {
 	if (c == 'C')
+	{
 		game->map->collectable++;
+		game->map->collectable_now++;
+	}
 	if (c == 'P')
 	{
 		game->map->player++;
-		game->player->player_x = i;
-		game->player->player_y = j;
+		game->player->player_x = j;
+		game->player->player_y = i;
 	}
 	if (c == 'E')
 	{
 		game->map->exit++;
-		game->map->exit_x = i;
-		game->map->exit_y = j;
+		game->map->exit_x = j;
+		game->map->exit_y = i;
 	}
+}
+
+void	ft_message_error(const char *msg)
+{
+	ft_putstr_fd(msg, 0);
+	exit(1);
 }

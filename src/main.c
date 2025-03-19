@@ -6,7 +6,7 @@
 /*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 14:52:04 by jemorais          #+#    #+#             */
-/*   Updated: 2025/03/17 14:46:13 by jemorais         ###   ########.fr       */
+/*   Updated: 2025/03/19 19:31:38 by jemorais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ int	main(int n_args, char **file)
 	game->map = ft_calloc(1, sizeof(t_map));
 	game->player = ft_calloc(1, sizeof(t_player));
 	ft_init_map(game, file[1]);
+	ft_set_map(game);
 	ft_validate_map(game);
+	ft_flood_fill(game);
 	ft_so_long(game);
-	ft_free_game_final(game);
+	ft_free_game(game);
+	return (EXIT_SUCCESS);
 }
