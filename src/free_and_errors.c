@@ -6,7 +6,7 @@
 /*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:44:19 by jemorais          #+#    #+#             */
-/*   Updated: 2025/03/19 20:12:04 by jemorais         ###   ########.fr       */
+/*   Updated: 2025/03/21 17:39:35 by jemorais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,3 @@ void	ft_cleanup_game(t_game *game)
 	mlx_terminate(game->mlx);
 	game->mlx = NULL;
 }
-

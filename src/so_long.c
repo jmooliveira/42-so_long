@@ -6,7 +6,7 @@
 /*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:44:32 by jemorais          #+#    #+#             */
-/*   Updated: 2025/03/19 20:07:33 by jemorais         ###   ########.fr       */
+/*   Updated: 2025/03/21 17:39:50 by jemorais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,3 @@ void	ft_move_player(t_game *game, int x, int y)
 	game->map->mov++;
 	ft_printf("%d moves\n", game->map->mov);
 }
-
