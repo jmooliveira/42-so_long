@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jemorais <jemorais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:09:18 by jemorais          #+#    #+#             */
-/*   Updated: 2025/03/19 20:08:15 by jemorais         ###   ########.fr       */
+/*   Updated: 2025/03/21 19:21:58 by jemorais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*so_long.h*/
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "../lib/include/libft.h"
 # include "../lib/include/ft_printf.h"
@@ -124,4 +124,4 @@ void	ft_error_flood(t_game *game, const char *msg);
 
 #endif
 
-// valgrind --leak-check=full --track-origins=yes --suppressions=sup.supp ./so_long maps/small.ber
+// valgrind --leak-check=full --track-origins=yes ./so_long *.ber
